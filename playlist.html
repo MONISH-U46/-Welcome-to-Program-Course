@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Course Video Player</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-purple-100 to-blue-100 min-h-screen flex flex-col items-center p-6">
+
+  <h1 class="text-4xl font-bold mb-8 text-gray-800 shadow-sm">🎓 Select a Course to Play</h1>
+
+  <!-- Course Buttons -->
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mb-10">
+    <a href="./videos/c++/C Programming.mp4"><p><button onclick="playVideo('c++')" class="bg-blue-500 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-md text-xl">C++</button></p></a>
+    <a href="./videos/java/Java Course.mp4"><p><button onclick="playVideo('java')" class="bg-red-500 hover:bg-red-700 text-white px-6 py-3 rounded-lg shadow-md text-xl">Java</button></p></a>
+    <a href="./videos/python/Python  course.mp4"><p><button onclick="playVideo('python')" class="bg-green-500 hover:bg-green-700 text-white px-6 py-3 rounded-lg shadow-md text-xl">Python</button></p></a>
+    <a href="./videos/html/html course.mp4"><p><button onclick="playVideo('html')" class="bg-orange-500 hover:bg-orange-700 text-white px-6 py-3 rounded-lg shadow-md text-xl">HTML</button></p></a>
+    <a href="./videos/css/css course.mp4"><p><button onclick="playVideo('css')" class="bg-purple-500 hover:bg-purple-700 text-white px-6 py-3 rounded-lg shadow-md text-xl">CSS</button></p></a>
+  </div>
+
+  <!-- Video Player -->
+  <div class="w-full max-w-4xl bg-white shadow-xl rounded-lg p-4">
+    <video id="videoPlayer" class="w-full rounded" height="400" controls>
+      <source src="" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p id="videoTitle" class="mt-4 text-center text-lg text-gray-700 font-semibold"></p>
+  </div>
+
+  <!-- Script -->
+  <script>
+    function playVideo(course) {
+      const video = document.getElementById("videoPlayer");
+      const title = document.getElementById("videoTitle");
+
+      // Set correct path to course video
+      video.src = `videos/${course}/video.mp4`;
+      video.load();
+      video.play();
+
+      // Show which video is playing
+      title.textContent = `Now Playing: ${course.toUpperCase()} Course`;
+    }
+  </script>
+
+</body>
+</html>
